@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import openai
 import os
+import uvicorn
 from dotenv import load_dotenv
 from functions import load_faq_data, chunk_text, load_or_create_faiss_index, generate_answer_with_rag
 
@@ -29,5 +30,5 @@ def ask_question(query: str):
 
 # ローカル実行（デプロイせずローカルで試す場合）
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
