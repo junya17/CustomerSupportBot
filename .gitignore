@@ -1,0 +1,5 @@
+echo ".env" >> .gitignore
+echo "config.json" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "myenv/" >> .gitignore
+echo ".venv/" >> .gitignore
