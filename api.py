@@ -19,6 +19,10 @@ index = load_or_create_faiss_index(chunks)
 # FastAPI のインスタンス作成
 app = FastAPI()
 
+@app.get("/")
+def home():
+    return {"message": "Hello, Render! Your API is working!"}
+
 # エンドポイント（質問を受け付けて回答を返す）
 @app.get("/ask")
 def ask_question(query: str):
